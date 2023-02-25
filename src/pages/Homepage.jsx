@@ -24,26 +24,25 @@ const Homepage = () => {
 
   const stepsTour = [
     {
+      selector: "#logWin",
+      content: "Step 1 Wait for the pretrained model to be loaded.",
+    },
+    {
       selector: "#gather0Btn",
       content:
-        "Step 1 is to gather 10 or more images for Class 1 frame by clicking this button",
+        "Step 2 Gather 10 or more images for Class 1 frame by clicking this button.",
     },
     {
       selector: "#gather1Btn",
-      content: "Step 2 is to continue to gather 10 or more images for Class 2",
+      content: "Step 3 Continue to gather 10 or more images for Class 2.",
     },
     {
       selector: "#trainBtn",
-      content: "Step 3 is to train the classification AI model.",
+      content: "Step 4 Train the classification AI model.",
     },
     {
       selector: "#trainBtn",
-      content: "Step 4 is to predict the classification result",
-    },
-    {
-      selector: "#resetBtn",
-      content:
-        "Finally, if you want build new classification AI model, click this button to reset the model and training data",
+      content: "Step 5 Predict the result.",
     },
   ];
 

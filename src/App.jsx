@@ -1,4 +1,3 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import * as tf from "@tensorflow/tfjs";
 import { useDispatch } from "react-redux";
@@ -17,14 +16,6 @@ function App() {
   }, []);
 
   return (
-    // <HashRouter>
-    //   <Layout>
-    //     <Routes>
-    //       <Route path="/" element={<Homepage />} />
-    //     </Routes>
-    //   </Layout>
-    // </HashRouter>
-
     <Layout>
       <Homepage />
     </Layout>

@@ -184,6 +184,8 @@ export const resetTrainData = (dispatch) => {
 };
 
 export const loadPretrainedModel = async (dispatch) => {
+  dispatch(addLogMessage({ message: "Loading pretrained model..." }));
+
   if (PRETRAINED_MODEL === undefined) {
     const URL =
       "https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1";
