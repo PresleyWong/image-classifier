@@ -30,7 +30,7 @@ const Homepage = () => {
     {
       selector: "#gather0Btn",
       content:
-        "Step 2 Gather 10 or more images for Class 1 frame by clicking this button.",
+        "Step 2 Gather 10 or more images for Class 1 by clicking the button.",
     },
     {
       selector: "#gather1Btn",
