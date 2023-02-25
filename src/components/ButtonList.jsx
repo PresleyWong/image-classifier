@@ -1,6 +1,7 @@
 import Tour from "reactour";
 import { useSelector } from "react-redux";
 import { PlusIcon, MinusIcon } from "@heroicons/react/20/solid";
+import { PRETRAINED_MODEL } from "../utility";
 
 const ButtonList = ({
   handleCamera,
@@ -45,9 +46,11 @@ const ButtonList = ({
           onClick={handleAddClass}
           type="button"
           className={
-            classNames.length < 5 ? "primary-btn" : "primary-btn-disabled"
+            classNames.length >= 5 || predictionMode
+              ? "primary-btn-disabled"
+              : "primary-btn"
           }
-          disabled={classNames.length >= 5}
+          disabled={classNames.length >= 5 || predictionMode}
           id="addBtn"
         >
           Add Class
@@ -94,7 +97,9 @@ const ButtonList = ({
             key={index}
             type="button"
             className={
-              predictionMode === true ? "primary-btn-disabled" : "primary-btn"
+              predictionMode === true || PRETRAINED_MODEL === undefined
+                ? "primary-btn-disabled"
+                : "primary-btn"
             }
             disabled={predictionMode}
             onClick={() => handleCollect(index)}
