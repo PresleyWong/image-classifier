@@ -51,6 +51,7 @@ const Homepage = () => {
   );
 
   const hasGetUserMedia = () => {
+    debugger;
     return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
   };
 
@@ -109,7 +110,7 @@ const Homepage = () => {
 
   return (
     <div className="">
-      <div className="flex justify-center mb-5">
+      <div className="flex flex-col md:flex-row md:justify-center mb-3">
         <Video webcamRef={webcamRef} />
         <Log logMessage={logMessage} />
       </div>
