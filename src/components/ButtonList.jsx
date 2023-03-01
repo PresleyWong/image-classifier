@@ -2,6 +2,7 @@ import Tour from "reactour";
 import { useSelector } from "react-redux";
 import { PlusIcon, MinusIcon } from "@heroicons/react/20/solid";
 import { PRETRAINED_MODEL } from "../utility";
+import Button from "./Button";
 
 const ButtonList = ({
   handleCamera,
@@ -24,25 +25,38 @@ const ButtonList = ({
         isOpen={isTourOpen}
         onRequestClose={() => openTour(false)}
       />
-      <div className="flex justify-center items-center gap-x-5">
-        <button
+      <div className="flex flex-wrap justify-center items-center gap-5">
+        <Button text="Tour" handler={() => openTour(true)} />
+        {/* <button
           onClick={() => openTour(true)}
           type="button"
           className="primary-btn"
         >
           Tour
-        </button>
+        </button> */}
 
-        <button
+        <Button
+          text={predictionMode === true ? "Predict!" : "Train!"}
+          handler={handleTrain}
+          isDanger={predictionMode}
+          id="trainBtn"
+        />
+        {/* <button
           onClick={handleTrain}
           type="button"
           className={predictionMode === true ? "danger-btn" : "primary-btn"}
           id="trainBtn"
         >
           {predictionMode === true ? "Predict!" : "Train!"}
-        </button>
+        </button> */}
 
-        <button
+        <Button
+          text="Add Class"
+          handler={handleAddClass}
+          disabled={classNames.length >= 5 || predictionMode}
+          id="addBtn"
+        />
+        {/* <button
           onClick={handleAddClass}
           type="button"
           className={
@@ -54,9 +68,15 @@ const ButtonList = ({
           id="addBtn"
         >
           Add Class
-        </button>
+        </button> */}
 
-        <button
+        <Button
+          text="Remove Class"
+          handler={handleRemoveClass}
+          disabled={classNames.length <= 2}
+          id="removeBtn"
+        />
+        {/* <button
           onClick={handleRemoveClass}
           type="button"
           className={
@@ -66,46 +86,56 @@ const ButtonList = ({
           id="removeBtn"
         >
           Remove Class
-        </button>
+        </button> */}
 
-        <button
+        <Button text="Clear Log" handler={handleClear} id="clearBtn" />
+        {/* <button
           onClick={handleClear}
           type="button"
           className="primary-btn"
           id="clearBtn"
         >
           Clear Log
-        </button>
+        </button> */}
 
-        <button
+        <Button text="Reset" handler={handleReset} id="resetBtn" />
+        {/* <button
           onClick={handleReset}
           type="button"
           className="primary-btn"
           id="resetBtn"
         >
           Reset
-        </button>
+        </button> */}
       </div>
 
       <div
-        className="flex justify-center gap-x-2 rounded-md shadow-sm mt-3"
+        className="flex flex-wrap justify-center gap-2 rounded-md shadow-sm mt-3"
         role="group"
       >
         {classNames.map((item, index) => (
-          <button
+          <Button
+            text={`Gather ${classNames[index]} Data`}
+            handler={() => handleCollect(index)}
+            disabled={predictionMode || PRETRAINED_MODEL === undefined}
             id={`gather${index}Btn`}
             key={index}
-            type="button"
-            className={
-              predictionMode === true || PRETRAINED_MODEL === undefined
-                ? "primary-btn-disabled"
-                : "primary-btn"
-            }
-            disabled={predictionMode}
-            onClick={() => handleCollect(index)}
-          >
-            {`Gather ${classNames[index]} Data`}
-          </button>
+          />
+
+          // <button
+          //   id={`gather${index}Btn`}
+          //   key={index}
+          //   type="button"
+          //   className={
+          //     predictionMode === true || PRETRAINED_MODEL === undefined
+          //       ? "primary-btn-disabled"
+          //       : "primary-btn"
+          //   }
+          //   disabled={predictionMode}
+          //   onClick={() => handleCollect(index)}
+          // >
+          //   {`Gather ${classNames[index]} Data`}
+          // </button>
         ))}
       </div>
     </div>
