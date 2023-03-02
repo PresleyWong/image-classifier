@@ -11,16 +11,16 @@
   "dependencies": {
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "^2.0.15",
-    "@reactour/tour": "^3.3.0",
     "@reduxjs/toolkit": "^1.9.2",
     "@tensorflow/tfjs": "^4.2.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-joyride": "^2.5.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
-    "react-spring": "^9.7.1",
-    "react-webcam": "^7.0.1"
+    "react-webcam": "^7.0.1",
+    "reactour": "^1.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
