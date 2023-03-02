@@ -27,86 +27,26 @@ const ButtonList = ({
       />
       <div className="flex flex-wrap justify-center items-center gap-5">
         <Button text="Tour" handler={() => openTour(true)} />
-        {/* <button
-          onClick={() => openTour(true)}
-          type="button"
-          className="primary-btn"
-        >
-          Tour
-        </button> */}
-
         <Button
           text={predictionMode === true ? "Predict!" : "Train!"}
           handler={handleTrain}
           isDanger={predictionMode}
           id="trainBtn"
         />
-        {/* <button
-          onClick={handleTrain}
-          type="button"
-          className={predictionMode === true ? "danger-btn" : "primary-btn"}
-          id="trainBtn"
-        >
-          {predictionMode === true ? "Predict!" : "Train!"}
-        </button> */}
-
         <Button
           text="Add Class"
           handler={handleAddClass}
           disabled={classNames.length >= 5 || predictionMode}
           id="addBtn"
         />
-        {/* <button
-          onClick={handleAddClass}
-          type="button"
-          className={
-            classNames.length >= 5 || predictionMode
-              ? "primary-btn-disabled"
-              : "primary-btn"
-          }
-          disabled={classNames.length >= 5 || predictionMode}
-          id="addBtn"
-        >
-          Add Class
-        </button> */}
-
         <Button
           text="Remove Class"
           handler={handleRemoveClass}
           disabled={classNames.length <= 2}
           id="removeBtn"
         />
-        {/* <button
-          onClick={handleRemoveClass}
-          type="button"
-          className={
-            classNames.length > 2 ? "primary-btn" : "primary-btn-disabled"
-          }
-          disabled={classNames.length <= 2}
-          id="removeBtn"
-        >
-          Remove Class
-        </button> */}
-
         <Button text="Clear Log" handler={handleClear} id="clearBtn" />
-        {/* <button
-          onClick={handleClear}
-          type="button"
-          className="primary-btn"
-          id="clearBtn"
-        >
-          Clear Log
-        </button> */}
-
         <Button text="Reset" handler={handleReset} id="resetBtn" />
-        {/* <button
-          onClick={handleReset}
-          type="button"
-          className="primary-btn"
-          id="resetBtn"
-        >
-          Reset
-        </button> */}
       </div>
 
       <div
@@ -121,21 +61,6 @@ const ButtonList = ({
             id={`gather${index}Btn`}
             key={index}
           />
-
-          // <button
-          //   id={`gather${index}Btn`}
-          //   key={index}
-          //   type="button"
-          //   className={
-          //     predictionMode === true || PRETRAINED_MODEL === undefined
-          //       ? "primary-btn-disabled"
-          //       : "primary-btn"
-          //   }
-          //   disabled={predictionMode}
-          //   onClick={() => handleCollect(index)}
-          // >
-          //   {`Gather ${classNames[index]} Data`}
-          // </button>
         ))}
       </div>
     </div>
